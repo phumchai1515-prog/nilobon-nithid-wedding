@@ -30,6 +30,8 @@ body {
 }
 body.is-locked { overflow: hidden; }
 img { display: block; max-width: 100%; }
+/* components set display:flex etc.; the hidden attribute must still hide them */
+[hidden] { display: none !important; }
 a { text-decoration: none; }
 
 /* ---------- Page frame: phone-width card centred on wine ---------- */

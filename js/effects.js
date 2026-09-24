@@ -4,6 +4,8 @@
 
   var MAX_HEARTS = 40;
   var HEARTS_PER_TAP = 4;
+  var TAP_MAX_MOVE_PX = 10;
+  var TAP_MAX_MS = 500;
   var HEART_COLORS = ['#A0505E', '#7B1E2B', '#C79AA0', '#B99A5B', '#E3CFAA'];
   // Taps on these elements should do their own job, not spawn hearts
   var NO_HEART_SELECTOR = 'a, button, canvas, input, .lightbox, .dock, .intro';
@@ -41,9 +43,19 @@
     for (var i = 0; i < count; i++) spawnHeart(x, y, spread);
   }
 
+  // A tap = pointer goes down and up close together in place. Scrolling moves the
+  // finger (or the browser sends pointercancel), so it never spawns hearts.
+  var tapStart = null;
   document.addEventListener('pointerdown', function (e) {
-    if (e.target.closest(NO_HEART_SELECTOR)) return;
-    burst(e.clientX, e.clientY, HEARTS_PER_TAP, 40);
+    tapStart = e.target.closest(NO_HEART_SELECTOR) ? null : { x: e.clientX, y: e.clientY, t: Date.now() };
+  });
+  document.addEventListener('pointercancel', function () { tapStart = null; });
+  document.addEventListener('pointerup', function (e) {
+    if (!tapStart) return;
+    var moved = Math.abs(e.clientX - tapStart.x) + Math.abs(e.clientY - tapStart.y);
+    var isTap = moved <= TAP_MAX_MOVE_PX && Date.now() - tapStart.t <= TAP_MAX_MS;
+    tapStart = null;
+    if (isTap) burst(e.clientX, e.clientY, HEARTS_PER_TAP, 40);
   });
   document.addEventListener('ecard:burst', function (e) {
     burst(e.detail.x, e.detail.y, e.detail.count || 12, 110);

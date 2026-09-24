@@ -17,7 +17,6 @@
 .album__item.is-extra { display: none; }
 .album.is-expanded .album__item.is-extra { display: block; animation: riseIn .7s ease both; }
 .gallery__more { align-self: center; }
-.gallery__more[hidden] { display: none; }
 
 /* ---------- Lightbox ---------- */
 .lightbox {
