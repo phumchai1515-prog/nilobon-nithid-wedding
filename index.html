@@ -23,6 +23,7 @@
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="intro.css">
 <link rel="stylesheet" href="decor.css">
+<link rel="stylesheet" href="extras.css">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -44,6 +45,7 @@
   <div class="intro__shade"></div>
   <div class="intro__frame"></div>
   <div class="intro__content">
+    <div class="intro__guest">เรียน <b data-guest>แขกผู้มีเกียรติ</b></div>
     <div class="intro__eyebrow">The Wedding of</div>
     <img class="intro__mono" src="assets/monogram-gold.png" alt="Nilobon &amp; Nithid monogram">
     <div class="intro__names">Nilobon <em>&amp;</em> Nithid</div>
@@ -63,26 +65,30 @@
     <div class="cover__fade"></div>
     <div class="cover__label">The Wedding of</div>
     <div class="cover__names">
-      <img src="assets/logo-names-light.png" alt="Nilobon &amp; Nithid">
+      <span class="shimmer cover__logo"><img src="assets/logo-names-light.png" alt="Nilobon &amp; Nithid"></span>
       <div class="cover__sub">07 · 11 · 2026</div>
     </div>
   </header>
 
   <!-- Date -->
-  <section class="date sheet">
+  <section class="date sheet" id="date">
     <div class="date__day">Saturday</div>
-    <div class="date__row">
-      <span>NOV</span>
-      <span class="date__num">07</span>
-      <span>2026</span>
+    <div class="scratch-wrap">
+      <div class="scratch-hint">ใช้นิ้ว<b>ขูด</b>เพื่อดูวันงาน · Scratch to reveal</div>
+      <div class="scratch-row" id="scratch-row">
+        <div class="scratch"><span class="scratch__value">07</span><span class="scratch__label">Day</span><canvas aria-hidden="true"></canvas></div>
+        <div class="scratch"><span class="scratch__value scratch__value--sm">NOV</span><span class="scratch__label">Month</span><canvas aria-hidden="true"></canvas></div>
+        <div class="scratch"><span class="scratch__value scratch__value--sm">2026</span><span class="scratch__label">Year</span><canvas aria-hidden="true"></canvas></div>
+      </div>
+      <button class="scratch-skip" id="scratch-skip" type="button">แตะเพื่อเปิดทั้งหมด</button>
     </div>
     <div class="date__th">วันเสาร์ที่ 7 พฤศจิกายน พ.ศ. 2569</div>
     <div class="date__venue">De Princess Hotel · Udon Thani</div>
     <div class="countdown" id="countdown" hidden>
-      <div class="countdown__unit"><b class="countdown__num" data-unit="days">0</b><span class="countdown__label">วัน<i>Days</i></span></div>
-      <div class="countdown__unit"><b class="countdown__num" data-unit="hours">00</b><span class="countdown__label">ชั่วโมง<i>Hours</i></span></div>
-      <div class="countdown__unit"><b class="countdown__num" data-unit="minutes">00</b><span class="countdown__label">นาที<i>Mins</i></span></div>
-      <div class="countdown__unit"><b class="countdown__num" data-unit="seconds">00</b><span class="countdown__label">วินาที<i>Secs</i></span></div>
+      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="days"></div><span class="countdown__label">วัน<i>Days</i></span></div>
+      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="hours"></div><span class="countdown__label">ชั่วโมง<i>Hours</i></span></div>
+      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="minutes"></div><span class="countdown__label">นาที<i>Mins</i></span></div>
+      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="seconds"></div><span class="countdown__label">วินาที<i>Secs</i></span></div>
     </div>
     <div class="pill" id="countdown-message" hidden></div>
     <a class="btn btn--ghost" href="wedding.ics" download="Nilobon-Nithid-Wedding.ics">+ บันทึกลงปฏิทิน</a>
@@ -90,7 +96,8 @@
 
   <!-- Invitation -->
   <section class="invite dark reveal">
-    <img class="invite__mono" src="assets/monogram-gold.png" alt="" loading="lazy">
+    <span class="shimmer"><img class="invite__mono" src="assets/monogram-gold.png" alt="" loading="lazy"></span>
+    <div class="invite__guest">เรียน <b data-guest>แขกผู้มีเกียรติ</b></div>
     <div class="parents">
       <div class="parents__col parents__col--left">
         <span>นายวัฒนา ช่วยแสง</span>
@@ -209,7 +216,7 @@
   </figure>
 
   <!-- Venue -->
-  <section class="venue dark reveal">
+  <section class="venue dark reveal" id="venue">
     <div class="eyebrow">Venue</div>
     <div class="title">โรงแรมเดอ ปริ้นเซส อุดรธานี</div>
     <div class="venue__en">De Princess Hotel Udon Thani</div>
@@ -220,7 +227,7 @@
   </section>
 
   <!-- Wishes -->
-  <section class="wishes reveal">
+  <section class="wishes reveal" id="wishes">
     <div class="eyebrow">Send Your Wishes</div>
     <div class="title">ร่วมเขียนคำอวยพร</div>
     <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
@@ -230,7 +237,7 @@
   </section>
 
   <!-- Pre-wedding gallery -->
-  <section class="gallery">
+  <section class="gallery" id="gallery">
     <div class="section-head" style="padding:0 30px">
       <div class="eyebrow">Pre-Wedding</div>
       <div class="title">ภาพพรีเวดดิ้ง</div>
@@ -273,13 +280,24 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <img src="assets/monogram-wine.png" alt="Nilobon &amp; Nithid monogram" loading="lazy">
+    <span class="shimmer"><img src="assets/monogram-wine.png" alt="Nilobon &amp; Nithid monogram" loading="lazy"></span>
     <div class="footer__quote">Love looks better in good company</div>
     <div class="footer__meta">07 · 11 · 2026 · Udon Thani</div>
+    <button class="btn btn--ghost" type="button" data-share>แชร์การ์ดนี้ให้คนที่คุณรัก</button>
   </footer>
 
 </main>
 </div>
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<nav class="dock" id="dock" aria-label="เมนูลัด">
+  <button class="dock__btn" type="button" data-target="date"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>วันงาน</button>
+  <button class="dock__btn" type="button" data-target="venue"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg>แผนที่</button>
+  <button class="dock__btn" type="button" data-target="gallery"><svg viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2.5"/><circle cx="9" cy="10" r="1.8"/><path d="M20.5 16l-5-5-8.5 8.5"/></svg>รูปภาพ</button>
+  <button class="dock__btn" type="button" data-target="wishes"><svg viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></svg>อวยพร</button>
+  <button class="dock__btn" type="button" data-share><svg viewBox="0 0 24 24"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="M8.2 10.8l7.6-4.1M8.2 13.2l7.6 4.1"/></svg>แชร์</button>
+</nav>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="ภาพขยาย">
   <button class="lightbox__close" type="button" aria-label="ปิด">×</button>
@@ -289,8 +307,11 @@
   <div class="lightbox__count"></div>
 </div>
 
+<script src="guest.js"></script>
 <script src="main.js"></script>
 <script src="intro.js"></script>
 <script src="gallery.js"></script>
+<script src="scratch.js"></script>
+<script src="fx.js"></script>
 </body>
 </html>

@@ -26,22 +26,47 @@
     return 'วันนี้ · Today is the day';
   }
 
-  function renderParts(nums, parts) {
-    nums.forEach(function (el) {
-      var next = parts[el.dataset.unit];
-      if (el.textContent === next) return;
-      el.textContent = next;
-      el.classList.remove('is-tick');
-      void el.offsetWidth; // restart the tick animation
-      el.classList.add('is-tick');
-    });
+  var FLIP_DURATION_MS = 640;
+
+  // Split-flap card: static halves + two flaps that rotate over them
+  function buildFlip(el) {
+    el.innerHTML =
+      '<div class="flip__half flip__half--top"><span></span></div>' +
+      '<div class="flip__half flip__half--bottom"><span></span></div>' +
+      '<div class="flip__flap flip__flap--top"><span></span></div>' +
+      '<div class="flip__flap flip__flap--bottom"><span></span></div>';
+    var spans = el.querySelectorAll('span');
+    return { el: el, top: spans[0], bottom: spans[1], flapTop: spans[2], flapBottom: spans[3], value: null, timer: null };
+  }
+
+  function setFlip(card, next) {
+    if (card.value === next) return;
+    var prev = card.value === null ? next : card.value;
+    card.value = next;
+    card.el.setAttribute('aria-label', next);
+    card.top.textContent = next;
+    card.bottom.textContent = prev;
+    card.flapTop.textContent = prev;
+    card.flapBottom.textContent = next;
+    card.el.classList.remove('is-flipping');
+    void card.el.offsetWidth; // restart the flip animation
+    card.el.classList.add('is-flipping');
+    clearTimeout(card.timer);
+    card.timer = setTimeout(function () {
+      card.bottom.textContent = next;
+      card.el.classList.remove('is-flipping');
+    }, FLIP_DURATION_MS);
+  }
+
+  function renderParts(cards, parts) {
+    cards.forEach(function (card) { setFlip(card, parts[card.el.dataset.unit]); });
   }
 
   function initCountdown() {
     var box = document.getElementById('countdown');
     var message = document.getElementById('countdown-message');
     if (!box || !message) return;
-    var nums = Array.prototype.slice.call(box.querySelectorAll('[data-unit]'));
+    var nums = Array.prototype.slice.call(box.querySelectorAll('[data-unit]')).map(buildFlip);
     var timer = null;
 
     function update() {

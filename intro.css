@@ -106,8 +106,6 @@ body.is-locked { overflow: hidden; }
   background: rgba(255, 255, 255, .75); border: 1px solid rgba(216, 195, 165, .6);
   display: flex; flex-direction: column; align-items: center; gap: 6px;
 }
-.countdown__num { font-size: 28px; font-weight: 200; line-height: 1; color: var(--burgundy); font-variant-numeric: tabular-nums; }
-.countdown__num.is-tick { animation: tick .45s ease; }
 .countdown__label { font-size: 11px; font-weight: 300; color: var(--muted-2); }
 .countdown__label i { display: block; font-style: normal; font-family: var(--serif); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
 
@@ -135,14 +133,8 @@ body.is-locked { overflow: hidden; }
   100% { transform: translate3d(var(--drift, 60px), 110vh, 0) rotate(var(--spin, 540deg)); }
 }
 @keyframes kenBurns { from { transform: scale(1.12); } to { transform: scale(1); } }
-@keyframes tick {
-  0% { transform: translateY(-6px); opacity: .2; }
-  100% { transform: none; opacity: 1; }
-}
 
 @media (max-width: 360px) {
-  .countdown__unit { width: 60px; }
-  .countdown__num { font-size: 24px; }
   .intro__names { font-size: 34px; }
 }
 
@@ -153,5 +145,4 @@ body.is-locked { overflow: hidden; }
   .intro, .intro__slides img { transition-duration: .01s; }
   .sparkle, .petals { display: none; }
   .card.is-entered .cover img, .card.is-entered .cover__label, .card.is-entered .cover__names { animation: none; }
-  .countdown__num.is-tick { animation: none; }
 }
