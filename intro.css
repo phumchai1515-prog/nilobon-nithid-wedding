@@ -95,9 +95,9 @@ body.is-locked { overflow: hidden; }
 .petal--gold { background: linear-gradient(135deg, #EADBB8, #B99A5B); opacity: .55; }
 
 /* ---------- Page entrance after opening ---------- */
-.card.is-entered .cover img { animation: kenBurns 9s ease-out both; }
+.card.is-entered .cover > img { animation: kenBurns 9s ease-out both; }
 .card.is-entered .cover__label { animation: riseIn 1.2s ease .3s both; }
-.card.is-entered .logo img { animation: riseIn 1.4s ease .6s both; }
+.card.is-entered .cover__names { animation: riseIn 1.4s ease .6s both; }
 
 /* ---------- Live countdown ---------- */
 .countdown { margin-top: 14px; display: flex; gap: 8px; }
@@ -152,6 +152,6 @@ body.is-locked { overflow: hidden; }
   .intro__eyebrow, .intro__th, .intro__date, .intro__open, .intro__frame { animation: none; }
   .intro, .intro__slides img { transition-duration: .01s; }
   .sparkle, .petals { display: none; }
-  .card.is-entered .cover img, .card.is-entered .cover__label, .card.is-entered .logo img { animation: none; }
+  .card.is-entered .cover img, .card.is-entered .cover__label, .card.is-entered .cover__names { animation: none; }
   .countdown__num.is-tick { animation: none; }
 }
