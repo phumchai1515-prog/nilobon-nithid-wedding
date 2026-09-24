@@ -19,11 +19,20 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="intro.css">
+<link rel="stylesheet" href="decor.css">
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ornament" viewBox="0 0 200 24">
+    <path pathLength="1" d="M92 12 C72 12 62 4 46 7 C35 9 31 18 23 15 C16 12 19 5 25 8"/>
+    <path pathLength="1" d="M108 12 C128 12 138 4 154 7 C165 9 169 18 177 15 C184 12 181 5 175 8"/>
+    <path pathLength="1" d="M100 5 L106 12 L100 19 L94 12 Z"/>
+    <path pathLength="1" d="M4 12 L14 12 M186 12 L196 12"/>
+  </symbol>
+</svg>
 <!-- Opening screen -->
 <div class="intro" id="intro">
   <div class="intro__panel intro__panel--left"></div>
@@ -98,7 +107,7 @@
       <div class="couple-name__en">NITHID “AJ” TANGTHANAKITKUN</div>
     </div>
     <div class="invite__venue">ณ โรงแรมเดอ ปริ้นเซส อุดรธานี</div>
-    <div class="rule"></div>
+    <svg class="ornament reveal" aria-hidden="true"><use href="#ornament"/></svg>
   </section>
 
   <!-- Schedule -->
@@ -106,7 +115,7 @@
     <div class="section-head">
       <div class="eyebrow">Order of the Day</div>
       <div class="title">ลำดับพิธีการ</div>
-      <div class="rule" style="width:36px;margin-top:4px"></div>
+      <svg class="ornament reveal" aria-hidden="true"><use href="#ornament"/></svg>
     </div>
 
     <div class="group">
@@ -151,6 +160,7 @@
     <div class="section-head">
       <div class="eyebrow">Bride &amp; Groom</div>
       <div class="title">แนะนำเจ้าบ่าว เจ้าสาว</div>
+      <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     </div>
     <div class="couple__grid">
       <div class="person">
@@ -178,6 +188,7 @@
   <section class="dress reveal">
     <div class="eyebrow">Dress Code</div>
     <div class="title">Wine &amp; Champagne</div>
+    <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     <div class="swatches" aria-hidden="true">
       <span style="background:#4A0E1E"></span>
       <span style="background:#7B1E2B"></span>
@@ -194,6 +205,7 @@
     <div class="eyebrow">Venue</div>
     <div class="title">โรงแรมเดอ ปริ้นเซส อุดรธานี</div>
     <div class="venue__en">De Princess Hotel Udon Thani</div>
+    <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     <div class="qr" style="margin-top:8px"><img src="assets/qr-map.jpg" alt="QR แผนที่ไปงาน" loading="lazy"></div>
     <div class="hint">สแกน QR เพื่อเปิดแผนที่</div>
     <a class="btn btn--outline" href="https://www.google.com/maps/search/?api=1&amp;query=De+Princess+Hotel+Udon+Thani" target="_blank" rel="noopener">เปิดแผนที่ Google Maps</a>
@@ -203,6 +215,7 @@
   <section class="wishes reveal">
     <div class="eyebrow">Send Your Wishes</div>
     <div class="title">ร่วมเขียนคำอวยพร</div>
+    <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     <p>ฝากคำอวยพรและภาพความประทับใจ<br>ถึงคู่บ่าวสาวได้ที่นี่</p>
     <div class="qr qr--light"><img src="assets/qr-wish.jpg" alt="QR เขียนคำอวยพร" loading="lazy"></div>
     <a class="btn btn--solid" href="https://wish-v2.photowish.com/?eventId=3A789A9A" target="_blank" rel="noopener">เขียนคำอวยพร</a>
@@ -213,6 +226,7 @@
     <div class="section-head" style="padding:0 30px">
       <div class="eyebrow">Pre-Wedding</div>
       <div class="title">ภาพพรีเวดดิ้ง</div>
+      <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     </div>
     <div class="gallery__track" id="gallery">
       <button class="gallery__item" type="button"><img src="assets/p104.jpg" alt="ภาพพรีเวดดิ้ง 1" loading="lazy" style="object-position:50% 30%"></button>
@@ -222,7 +236,8 @@
       <button class="gallery__item" type="button"><img src="assets/p453.jpg" alt="ภาพพรีเวดดิ้ง 5" loading="lazy" style="object-position:50% 30%"></button>
       <button class="gallery__item" type="button"><img src="assets/cover.jpg" alt="ภาพพรีเวดดิ้ง 6" loading="lazy" style="object-position:50% 20%"></button>
     </div>
-    <div class="gallery__hint">เลื่อนดูภาพ · แตะเพื่อขยาย →</div>
+    <div class="gallery__dots" id="gallery-dots"></div>
+    <div class="gallery__hint">เลื่อนดูภาพ · แตะเพื่อขยาย</div>
   </section>
 
   <!-- Footer -->
@@ -237,10 +252,14 @@
 
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="ภาพขยาย">
   <button class="lightbox__close" type="button" aria-label="ปิด">×</button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" data-nav="-1" aria-label="ภาพก่อนหน้า">‹</button>
   <img alt="">
+  <button class="lightbox__nav lightbox__nav--next" type="button" data-nav="1" aria-label="ภาพถัดไป">›</button>
+  <div class="lightbox__count"></div>
 </div>
 
 <script src="main.js"></script>
 <script src="intro.js"></script>
+<script src="gallery.js"></script>
 </body>
 </html>

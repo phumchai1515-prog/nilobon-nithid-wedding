@@ -79,31 +79,6 @@
     items.forEach(function (el) { observer.observe(el); });
   }
 
-  function initLightbox() {
-    var box = document.getElementById('lightbox');
-    var gallery = document.getElementById('gallery');
-    if (!box || !gallery) return;
-    var boxImg = box.querySelector('img');
-
-    function close() {
-      box.classList.remove('is-open');
-      boxImg.removeAttribute('src');
-    }
-
-    gallery.addEventListener('click', function (e) {
-      var img = e.target.closest('.gallery__item') && e.target.closest('.gallery__item').querySelector('img');
-      if (!img) return;
-      boxImg.src = img.src;
-      boxImg.alt = img.alt;
-      box.classList.add('is-open');
-    });
-    box.addEventListener('click', close);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') close();
-    });
-  }
-
   initCountdown();
   initReveal();
-  initLightbox();
 })();
