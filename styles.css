@@ -73,7 +73,7 @@ a { text-decoration: none; }
   text-transform: uppercase; color: var(--burgundy); font-weight: 600;
 }
 .logo { padding: 0 8% 4px; margin-top: -28px; position: relative; }
-.logo img, .footer img { width: 100%; mix-blend-mode: multiply; }
+.logo img { width: 100%; }
 
 /* Date */
 .date { padding: 6px 28px 40px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
@@ -201,7 +201,7 @@ a { text-decoration: none; }
 
 /* Footer */
 .footer { padding: 20px 30px 56px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; }
-.footer img { width: 200px; }
+.footer img { width: 150px; }
 .footer__quote { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--burgundy); }
 .footer__meta { font-size: 13px; color: var(--muted-2); letter-spacing: .04em; }
 
