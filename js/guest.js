@@ -1,3 +1,4 @@
+// Personalised greeting: ?to=<name> fills every [data-guest] element (links built by invite-links.html)
 (function () {
   'use strict';
 

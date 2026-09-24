@@ -1,3 +1,4 @@
+// Opening screen: photo slideshow, letter-by-letter names, sparkles; starts petals after opening
 (function () {
   'use strict';
 

@@ -1,3 +1,4 @@
+// Scratch-to-reveal date cards (canvas); fires 'ecard:burst' when all three are open
 (function () {
   'use strict';
 

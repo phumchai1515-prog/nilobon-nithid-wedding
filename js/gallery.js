@@ -1,3 +1,4 @@
+// Pre-wedding album: 'show all' button and a swipeable lightbox with 2000px images
 (function () {
   'use strict';
 

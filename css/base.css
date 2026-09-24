@@ -1,0 +1,107 @@
+/* ==========================================================================
+   Base — design tokens, page frame, shared components
+   ========================================================================== */
+
+:root {
+  --wine-deep: #3E0B18;
+  --wine: #4A0E1E;
+  --burgundy: #7B1E2B;
+  --rose: #A0505E;
+  --blush: #C79AA0;
+  --gold: #B99A5B;
+  --gold-line: #C9B58E;
+  --sand: #D8C3A5;
+  --sand-light: #EADFD2;
+  --cream: #F6F1E8;
+  --tile: #F6EEE6;
+  --muted: #6B4A50;
+  --muted-2: #8A6A70;
+  --serif: 'Cormorant Garamond', serif;
+  --paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .42 0 0 0 0 .28 0 0 0 0 .2 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--wine-deep); }
+body {
+  font-family: 'Prompt', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: var(--wine-deep);
+}
+body.is-locked { overflow: hidden; }
+img { display: block; max-width: 100%; }
+a { text-decoration: none; }
+
+/* ---------- Page frame: phone-width card centred on wine ---------- */
+.stage {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 0%, #5A1224 0%, var(--wine-deep) 60%, #2E0812 100%);
+}
+.card {
+  width: 100%;
+  max-width: 430px;
+  background-color: var(--cream);
+  background-image: var(--paper);
+  box-shadow: 0 0 80px rgba(0, 0, 0, .45);
+  overflow: hidden;
+}
+.dark { background: var(--wine); color: var(--cream); }
+.dark .title { color: var(--cream); }
+
+/* ---------- Section headings ---------- */
+.section-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.eyebrow {
+  font-family: var(--serif);
+  font-size: 13px;
+  letter-spacing: .32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.title { font-size: 22px; font-weight: 500; color: var(--wine); }
+.rule { width: 44px; height: 1px; background: var(--gold); }
+
+/* Gold flourish that draws itself (SVG symbol #ornament in index.html) */
+.ornament {
+  display: block; width: 150px; height: 18px; margin: 4px auto 0;
+  color: var(--gold); fill: none; stroke: currentColor; stroke-width: 1; stroke-linecap: round;
+  stroke-dasharray: 1; stroke-dashoffset: 1;
+  transition: stroke-dashoffset 1.8s cubic-bezier(.45, 0, .2, 1) .2s;
+}
+.ornament--sm { width: 110px; }
+.ornament.is-visible, .is-visible .ornament { stroke-dashoffset: 0; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  margin-top: 6px; display: inline-flex; align-items: center; justify-content: center;
+  min-height: 46px; padding: 0 30px; font-size: 14px; letter-spacing: .08em;
+  font-family: inherit; cursor: pointer; transition: background .2s, color .2s;
+}
+.btn--outline { border: 1px solid var(--gold); color: var(--cream); background: transparent; }
+.btn--outline:hover { background: var(--gold); color: var(--wine-deep); }
+.btn--solid { background: var(--burgundy); color: var(--cream); border: 0; }
+.btn--solid:hover { background: var(--wine); }
+.btn--ghost { border: 1px solid var(--gold-line); color: var(--burgundy); background: transparent; }
+.btn--ghost:hover { background: var(--tile); }
+
+.pill {
+  margin-top: 10px; padding: 8px 18px;
+  border: 1px solid var(--gold-line); border-radius: 999px;
+  font-size: 13px; color: var(--burgundy); letter-spacing: .08em;
+}
+
+/* ---------- Fade-up on scroll (js/scroll.js adds .is-visible) ---------- */
+.reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+.ornament.reveal { opacity: 1; transform: none; }
+
+/* ---------- Shared keyframes ---------- */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+@keyframes popIn { from { transform: scale(.6); opacity: 0; } to { transform: none; opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .ornament { stroke-dashoffset: 0; transition: none; }
+}

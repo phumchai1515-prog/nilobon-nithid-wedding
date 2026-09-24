@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Pre-wedding album (masonry) and lightbox
+   Behaviour: js/gallery.js
+   ========================================================================== */
+
+.gallery { padding: 8px 0 48px; display: flex; flex-direction: column; gap: 22px; }
+
+/* ---------- Masonry album ---------- */
+.album { columns: 2; column-gap: 10px; padding: 0 16px; }
+.album__item {
+  display: block; width: 100%; margin: 0 0 10px; padding: 0; border: 0;
+  background: var(--sand-light); border-radius: 12px; overflow: hidden;
+  break-inside: avoid; cursor: zoom-in;
+}
+.album__item img { width: 100%; height: auto; transition: transform .6s ease; }
+.album__item:hover img { transform: scale(1.04); }
+.album__item.is-extra { display: none; }
+.album.is-expanded .album__item.is-extra { display: block; animation: riseIn .7s ease both; }
+.gallery__more { align-self: center; }
+.gallery__more[hidden] { display: none; }
+
+/* ---------- Lightbox ---------- */
+.lightbox {
+  position: fixed; inset: 0; z-index: 10; display: none;
+  flex-direction: column; gap: 14px; align-items: center; justify-content: center;
+  background: rgba(30, 5, 12, .92); padding: 16px; cursor: zoom-out;
+}
+.lightbox.is-open { display: flex; }
+.lightbox img {
+  max-height: 84vh; max-width: 100%; border-radius: 12px; object-fit: contain;
+  cursor: default; touch-action: pan-y; transition: opacity .25s ease;
+}
+.lightbox img.is-switching { opacity: 0; }
+.lightbox__close {
+  position: absolute; top: 12px; right: 12px; width: 44px; height: 44px;
+  border: 0; background: none; color: var(--cream); font-size: 28px; cursor: pointer;
+}
+.lightbox__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid rgba(233, 217, 184, .45); background: rgba(62, 11, 24, .55);
+  color: var(--cream); font-size: 22px; line-height: 1; cursor: pointer;
+}
+.lightbox__nav--prev { left: 10px; }
+.lightbox__nav--next { right: 10px; }
+.lightbox__count { font-family: var(--serif); font-size: 14px; letter-spacing: .3em; color: var(--sand); }
+
+@media (prefers-reduced-motion: reduce) {
+  .lightbox img, .album__item img { transition: none; }
+}

@@ -10,20 +10,22 @@
 <meta property="og:title" content="Nilobon &amp; Nithid · 07.11.2026">
 <meta property="og:description" content="ขอเรียนเชิญร่วมเป็นเกียรติในพิธีมงคลสมรส · วันเสาร์ที่ 7 พฤศจิกายน 2569 · โรงแรมเดอ ปริ้นเซส อุดรธานี">
 <meta property="og:url" content="https://phumchai1515-prog.github.io/nilobon-nithid-wedding/">
-<meta property="og:image" content="https://phumchai1515-prog.github.io/nilobon-nithid-wedding/assets/og.jpg">
+<meta property="og:image" content="https://phumchai1515-prog.github.io/nilobon-nithid-wedding/assets/images/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/favicon.png">
-<link rel="apple-touch-icon" href="assets/favicon.png">
+<link rel="icon" href="assets/brand/favicon.png">
+<link rel="apple-touch-icon" href="assets/brand/favicon.png">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=202609242137">
-<link rel="stylesheet" href="intro.css?v=202609242137">
-<link rel="stylesheet" href="decor.css?v=202609242137">
-<link rel="stylesheet" href="extras.css?v=202609242137">
+<link rel="stylesheet" href="css/base.css?v=202609242145">
+<link rel="stylesheet" href="css/intro.css?v=202609242145">
+<link rel="stylesheet" href="css/hero.css?v=202609242145">
+<link rel="stylesheet" href="css/sections.css?v=202609242145">
+<link rel="stylesheet" href="css/gallery.css?v=202609242145">
+<link rel="stylesheet" href="css/effects.css?v=202609242145">
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -47,7 +49,7 @@
   <div class="intro__content">
     <div class="intro__guest">เรียน <b data-guest>แขกผู้มีเกียรติ</b></div>
     <div class="intro__eyebrow">The Wedding of</div>
-    <img class="intro__mono" src="assets/monogram-gold.png" alt="Nilobon &amp; Nithid monogram">
+    <img class="intro__mono" src="assets/brand/monogram-gold.png" alt="Nilobon &amp; Nithid monogram">
     <div class="intro__names">Nilobon <em>&amp;</em> Nithid</div>
     <div class="intro__th">นิโลบล · นิธิศ</div>
     <div class="intro__date">07 · 11 · 2026</div>
@@ -61,11 +63,11 @@
 
   <!-- Cover -->
   <header class="cover">
-    <img src="assets/cover.jpg" alt="นิโลบล และ นิธิศ" fetchpriority="high">
+    <img class="cover__photo" src="assets/images/cover.jpg" alt="นิโลบล และ นิธิศ" fetchpriority="high">
     <div class="cover__fade"></div>
     <div class="cover__label">The Wedding of</div>
     <div class="cover__names">
-      <span class="shimmer cover__logo"><img src="assets/logo-names-light.png" alt="Nilobon &amp; Nithid"></span>
+      <span class="shimmer cover__logo"><img src="assets/brand/logo-names-light.png" alt="Nilobon &amp; Nithid"></span>
       <div class="cover__sub">07 · 11 · 2026</div>
     </div>
   </header>
@@ -85,10 +87,10 @@
     <div class="date__th">วันเสาร์ที่ 7 พฤศจิกายน พ.ศ. 2569</div>
     <div class="date__venue">De Princess Hotel · Udon Thani</div>
     <div class="countdown" id="countdown" hidden>
-      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="days"></div><span class="countdown__label">วัน<i>Days</i></span></div>
-      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="hours"></div><span class="countdown__label">ชั่วโมง<i>Hours</i></span></div>
-      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="minutes"></div><span class="countdown__label">นาที<i>Mins</i></span></div>
-      <div class="countdown__unit"><div class="flip flip-shadow" data-unit="seconds"></div><span class="countdown__label">วินาที<i>Secs</i></span></div>
+      <div class="countdown__unit"><div class="flip" data-unit="days"></div><span class="countdown__label">วัน<i>Days</i></span></div>
+      <div class="countdown__unit"><div class="flip" data-unit="hours"></div><span class="countdown__label">ชั่วโมง<i>Hours</i></span></div>
+      <div class="countdown__unit"><div class="flip" data-unit="minutes"></div><span class="countdown__label">นาที<i>Mins</i></span></div>
+      <div class="countdown__unit"><div class="flip" data-unit="seconds"></div><span class="countdown__label">วินาที<i>Secs</i></span></div>
     </div>
     <div class="pill" id="countdown-message" hidden></div>
     <a class="btn btn--ghost" href="wedding.ics" download="Nilobon-Nithid-Wedding.ics">+ บันทึกลงปฏิทิน</a>
@@ -96,7 +98,7 @@
 
   <!-- Invitation -->
   <section class="invite dark reveal">
-    <span class="shimmer"><img class="invite__mono" src="assets/monogram-gold.png" alt="" loading="lazy"></span>
+    <span class="shimmer"><img class="invite__mono" src="assets/brand/monogram-gold.png" alt="" loading="lazy"></span>
     <div class="invite__guest">เรียน <b data-guest>แขกผู้มีเกียรติ</b></div>
     <div class="parents">
       <div class="parents__col parents__col--left">
@@ -221,7 +223,7 @@
     <div class="title">โรงแรมเดอ ปริ้นเซส อุดรธานี</div>
     <div class="venue__en">De Princess Hotel Udon Thani</div>
     <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
-    <div class="qr" style="margin-top:8px"><img src="assets/qr-map.jpg" alt="QR แผนที่ไปงาน" loading="lazy"></div>
+    <div class="qr" style="margin-top:8px"><img src="assets/images/qr-map.jpg" alt="QR แผนที่ไปงาน" loading="lazy"></div>
     <div class="hint">สแกน QR เพื่อเปิดแผนที่</div>
     <a class="btn btn--outline" href="https://www.google.com/maps/search/?api=1&amp;query=De+Princess+Hotel+Udon+Thani" target="_blank" rel="noopener">เปิดแผนที่ Google Maps</a>
   </section>
@@ -232,7 +234,7 @@
     <div class="title">ร่วมเขียนคำอวยพร</div>
     <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     <p>ฝากคำอวยพรและภาพความประทับใจ<br>ถึงคู่บ่าวสาวได้ที่นี่</p>
-    <div class="qr qr--light"><img src="assets/qr-wish.jpg" alt="QR เขียนคำอวยพร" loading="lazy"></div>
+    <div class="qr qr--light"><img src="assets/images/qr-wish.jpg" alt="QR เขียนคำอวยพร" loading="lazy"></div>
     <a class="btn btn--solid" href="https://wish-v2.photowish.com/?eventId=3A789A9A" target="_blank" rel="noopener">เขียนคำอวยพร</a>
   </section>
 
@@ -280,7 +282,7 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <span class="shimmer"><img src="assets/monogram-wine.png" alt="Nilobon &amp; Nithid monogram" loading="lazy"></span>
+    <span class="shimmer"><img src="assets/brand/monogram-wine.png" alt="Nilobon &amp; Nithid monogram" loading="lazy"></span>
     <div class="footer__quote">Love looks better in good company</div>
     <div class="footer__meta">07 · 11 · 2026 · Udon Thani</div>
     <button class="btn btn--ghost" type="button" data-share>แชร์การ์ดนี้ให้คนที่คุณรัก</button>
@@ -307,11 +309,13 @@
   <div class="lightbox__count"></div>
 </div>
 
-<script src="guest.js?v=202609242137"></script>
-<script src="main.js?v=202609242137"></script>
-<script src="intro.js?v=202609242137"></script>
-<script src="gallery.js?v=202609242137"></script>
-<script src="scratch.js?v=202609242137"></script>
-<script src="fx.js?v=202609242137"></script>
+<script src="js/guest.js?v=202609242145"></script>
+<script src="js/countdown.js?v=202609242145"></script>
+<script src="js/scroll.js?v=202609242145"></script>
+<script src="js/intro.js?v=202609242145"></script>
+<script src="js/gallery.js?v=202609242145"></script>
+<script src="js/scratch.js?v=202609242145"></script>
+<script src="js/effects.js?v=202609242145"></script>
+<script src="js/dock.js?v=202609242145"></script>
 </body>
 </html>
