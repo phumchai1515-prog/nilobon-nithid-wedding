@@ -1,0 +1,23 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Nilobon & Nithid//Wedding//TH
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:nilobon-nithid-morning-20261107@wedding
+DTSTAMP:20260924T000000Z
+DTSTART:20261107T012900Z
+DTEND:20261107T043000Z
+SUMMARY:พิธีมงคลสมรส นิโลบล & นิธิศ
+LOCATION:De Princess Hotel Udon Thani
+DESCRIPTION:08.29 แห่ขันหมาก / 09.09 บายศรีสู่ขวัญ / 09.39 พิธีสมมา / 10.19 รับประทานอาหาร
+END:VEVENT
+BEGIN:VEVENT
+UID:nilobon-nithid-reception-20261107@wedding
+DTSTAMP:20260924T000000Z
+DTSTART:20261107T110900Z
+DTEND:20261107T150000Z
+SUMMARY:งานเลี้ยงฉลองมงคลสมรส นิโลบล & นิธิศ
+LOCATION:De Princess Hotel Udon Thani
+END:VEVENT
+END:VCALENDAR
