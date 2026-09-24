@@ -4,65 +4,45 @@
   var SWIPE_THRESHOLD_PX = 45;
   var SWITCH_FADE_MS = 200;
 
-  var track = document.getElementById('gallery');
-  var dotsBox = document.getElementById('gallery-dots');
+  var album = document.getElementById('album');
+  var moreBtn = document.getElementById('gallery-more');
   var box = document.getElementById('lightbox');
-  if (!track || !dotsBox || !box) return;
+  if (!album || !box) return;
 
-  var items = Array.prototype.slice.call(track.querySelectorAll('.gallery__item'));
-  var images = items.map(function (item) { return item.querySelector('img'); });
+  var items = Array.prototype.slice.call(album.querySelectorAll('.album__item'));
   var boxImg = box.querySelector('img');
   var counter = box.querySelector('.lightbox__count');
   var current = 0;
 
-  /* ----- Dots synced with the scroll carousel ----- */
-  var dots = items.map(function (item, i) {
-    var dot = document.createElement('button');
-    dot.type = 'button';
-    dot.className = 'gallery__dot';
-    dot.setAttribute('aria-label', 'ภาพที่ ' + (i + 1));
-    dot.addEventListener('click', function () {
-      item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-    });
-    dotsBox.appendChild(dot);
-    return dot;
-  });
+  function fullSrc(i) { return items[i].dataset.full; }
+  function altText(i) { return items[i].querySelector('img').alt; }
 
-  function setActiveDot(index) {
-    dots.forEach(function (dot, i) { dot.classList.toggle('is-active', i === index); });
+  function preload(i) {
+    var img = new Image();
+    img.src = fullSrc((i + items.length) % items.length);
   }
 
-  function nearestIndex() {
-    var center = track.scrollLeft + track.clientWidth / 2;
-    var best = 0;
-    var bestDist = Infinity;
-    items.forEach(function (item, i) {
-      var dist = Math.abs(item.offsetLeft + item.offsetWidth / 2 - center);
-      if (dist < bestDist) { bestDist = dist; best = i; }
+  /* ----- "Show all" button ----- */
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function () {
+      album.classList.add('is-expanded');
+      moreBtn.hidden = true;
     });
-    return best;
   }
-
-  var scrollFrame = null;
-  track.addEventListener('scroll', function () {
-    if (scrollFrame) return;
-    scrollFrame = requestAnimationFrame(function () {
-      scrollFrame = null;
-      setActiveDot(nearestIndex());
-    });
-  }, { passive: true });
-  setActiveDot(0);
 
   /* ----- Lightbox with prev / next / swipe ----- */
   function show(index) {
-    current = (index + images.length) % images.length;
+    current = (index + items.length) % items.length;
+    var isOpen = box.classList.contains('is-open');
     boxImg.classList.add('is-switching');
     setTimeout(function () {
-      boxImg.src = images[current].src;
-      boxImg.alt = images[current].alt;
+      boxImg.src = fullSrc(current);
+      boxImg.alt = altText(current);
       boxImg.classList.remove('is-switching');
-    }, box.classList.contains('is-open') ? SWITCH_FADE_MS : 0);
-    counter.textContent = (current + 1) + ' / ' + images.length;
+    }, isOpen ? SWITCH_FADE_MS : 0);
+    counter.textContent = (current + 1) + ' / ' + items.length;
+    preload(current + 1);
+    preload(current - 1);
   }
 
   function open(index) {

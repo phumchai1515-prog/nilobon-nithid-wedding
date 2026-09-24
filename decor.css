@@ -1,7 +1,10 @@
-/* ---------- Thai calligraphic names (Charm) ---------- */
-.couple-name__th { font-family: 'Charm', 'Prompt', cursive; font-weight: 700; font-size: 30px; line-height: 1.35; letter-spacing: 0; }
-.person__name { font-family: 'Charm', 'Prompt', cursive; font-weight: 700; font-size: 22px; line-height: 1.6; margin-top: 6px; }
-.intro__th { font-family: 'Charm', 'Prompt', cursive; font-weight: 700; font-size: 22px; color: #E3CFAA; }
+/* ---------- Names: modern light Thai (Prompt ExtraLight) ---------- */
+.intro__names { white-space: nowrap; }
+.couple-name__th {
+  font-weight: 200; font-size: clamp(21px, 6.2vw, 26px); line-height: 1.5;
+  letter-spacing: .04em; white-space: nowrap;
+}
+.person__name { font-weight: 300; font-size: 17px; line-height: 1.5; letter-spacing: .02em; }
 
 /* ---------- Paper texture on cream areas ---------- */
 .card {
@@ -20,20 +23,61 @@
 .ornament.is-visible, .is-visible .ornament { stroke-dashoffset: 0; }
 .ornament.reveal { opacity: 1; transform: none; }
 
-/* ---------- Gallery dots ---------- */
-.gallery__dots { display: flex; justify-content: center; gap: 8px; }
-.gallery__dot {
-  width: 7px; height: 7px; padding: 0; border: 0; border-radius: 999px;
-  background: var(--sand); cursor: pointer; transition: width .3s ease, background .3s ease;
+/* ---------- Schedule as a gold timeline ---------- */
+.timeline { position: relative; display: flex; flex-direction: column; gap: 6px; padding: 4px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 86px; top: 14px; bottom: 14px; width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold-line) 12%, var(--gold-line) 88%, transparent);
 }
-.gallery__dot.is-active { width: 22px; background: var(--burgundy); }
-/* larger invisible hit area for fingers */
-.gallery__dot { position: relative; }
-.gallery__dot::after { content: ''; position: absolute; inset: -12px -6px; }
+.tl-item { position: relative; display: grid; grid-template-columns: 70px 1fr; gap: 32px; align-items: center; padding: 14px 4px; }
+.tl-item::before {
+  content: ''; position: absolute; left: 82px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px;
+  border-radius: 50%; background: var(--cream); border: 1px solid var(--gold);
+  box-shadow: 0 0 0 4px var(--cream);
+}
+.tl-item.is-visible::before { background: var(--gold); transition: background .6s ease .3s; }
+.tl-time { text-align: right; font-size: 26px; font-weight: 200; line-height: 1; color: var(--burgundy); font-variant-numeric: tabular-nums; }
+.tl-time small { display: block; margin-top: 4px; font-size: 10px; font-weight: 300; letter-spacing: .2em; color: #A07A7F; }
+.tl-body { display: flex; flex-direction: column; gap: 3px; }
+.tl-th { font-size: 15px; font-weight: 400; line-height: 1.4; color: var(--wine-deep); }
+.tl-en { font-size: 12px; font-weight: 300; color: var(--muted-2); letter-spacing: .02em; }
+
+/* ---------- Full-width photo breaks with parallax ---------- */
+.photo-break { position: relative; margin: 0; height: min(78vw, 340px); overflow: hidden; background: var(--wine); }
+.photo-break img {
+  position: absolute; left: 0; top: -12%; width: 100%; height: 124%;
+  object-fit: cover; will-change: transform;
+  transform: translate3d(0, var(--parallax, 0px), 0);
+}
+.photo-break::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(30, 5, 11, .05) 30%, rgba(30, 5, 11, .6) 100%);
+}
+.photo-break figcaption {
+  position: absolute; left: 0; right: 0; bottom: 22px; z-index: 1; text-align: center;
+  color: #F6EBD6; display: flex; flex-direction: column; gap: 4px;
+}
+.photo-break figcaption b { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 26px; }
+.photo-break figcaption span { font-size: 12px; font-weight: 300; letter-spacing: .18em; color: #EADFD2; }
+
+/* ---------- Gallery: masonry album ---------- */
+.gallery { padding: 8px 0 48px; gap: 22px; }
+.album { columns: 2; column-gap: 10px; padding: 0 16px; }
+.album__item {
+  display: block; width: 100%; margin: 0 0 10px; padding: 0; border: 0;
+  background: var(--sand-light); border-radius: 12px; overflow: hidden;
+  break-inside: avoid; cursor: zoom-in;
+}
+.album__item img { width: 100%; height: auto; transition: transform .6s ease; }
+.album__item:hover img { transform: scale(1.04); }
+.album__item.is-extra { display: none; }
+.album.is-expanded .album__item.is-extra { display: block; animation: riseIn .7s ease both; }
+.gallery__more { align-self: center; }
+.gallery__more[hidden] { display: none; }
 
 /* ---------- Lightbox navigation ---------- */
 .lightbox { flex-direction: column; gap: 14px; }
-.lightbox img { cursor: default; touch-action: pan-y; transition: opacity .25s ease; }
+.lightbox img { max-height: 84vh; cursor: default; touch-action: pan-y; transition: opacity .25s ease; }
 .lightbox img.is-switching { opacity: 0; }
 .lightbox__nav {
   position: absolute; top: 50%; transform: translateY(-50%);
@@ -47,5 +91,6 @@
 
 @media (prefers-reduced-motion: reduce) {
   .ornament { stroke-dashoffset: 0; transition: none; }
-  .gallery__dot, .lightbox img { transition: none; }
+  .lightbox img, .album__item img { transition: none; }
+  .photo-break img { transform: none; }
 }

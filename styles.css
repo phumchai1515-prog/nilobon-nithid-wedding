@@ -114,20 +114,6 @@ a { text-decoration: none; }
 .group__head { display: flex; align-items: baseline; justify-content: space-between; padding: 0 4px 4px; }
 .group__th { font-size: 15px; font-weight: 500; color: var(--wine); }
 .group__en { font-size: 12px; font-weight: 300; letter-spacing: .14em; text-transform: uppercase; color: var(--gold); }
-.event {
-  display: flex; align-items: center; gap: 16px;
-  background: #fff; border-radius: 16px; padding: 16px 18px;
-  box-shadow: 0 1px 0 var(--sand-light), 0 10px 24px -14px rgba(74,14,30,.25);
-}
-.event__time {
-  flex: 0 0 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;
-  width: 68px; height: 60px; border-radius: 12px; background: var(--tile);
-}
-.event__time b { font-size: 20px; font-weight: 500; color: var(--burgundy); line-height: 1; letter-spacing: .02em; }
-.event__time small { font-size: 10px; font-weight: 300; color: #A07A7F; letter-spacing: .18em; margin-top: 5px; }
-.event__body { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
-.event__th { font-size: 15px; font-weight: 500; line-height: 1.35; }
-.event__en { font-size: 12px; font-weight: 300; color: var(--muted-2); line-height: 1.4; }
 .reception {
   border-radius: 20px; padding: 26px 22px;
   display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
@@ -178,14 +164,6 @@ a { text-decoration: none; }
 
 /* Gallery */
 .gallery { padding: 8px 0 44px; display: flex; flex-direction: column; gap: 20px; }
-.gallery__track {
-  display: flex; gap: 12px; overflow-x: auto; padding: 0 30px 6px;
-  scroll-snap-type: x mandatory; scrollbar-width: none; -webkit-overflow-scrolling: touch;
-}
-.gallery__track::-webkit-scrollbar { display: none; }
-.gallery__item { flex: 0 0 78%; scroll-snap-align: center; padding: 0; border: 0; background: none; cursor: zoom-in; }
-.gallery__item img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 16px; }
-.gallery__hint { text-align: center; font-size: 12px; color: var(--muted-2); letter-spacing: .06em; }
 
 .lightbox {
   position: fixed; inset: 0; z-index: 10; display: none;

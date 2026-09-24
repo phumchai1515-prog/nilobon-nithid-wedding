@@ -19,7 +19,7 @@
 <script>document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Prompt:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="intro.css">
 <link rel="stylesheet" href="decor.css">
@@ -35,8 +35,13 @@
 </svg>
 <!-- Opening screen -->
 <div class="intro" id="intro">
-  <div class="intro__panel intro__panel--left"></div>
-  <div class="intro__panel intro__panel--right"></div>
+  <div class="intro__slides" aria-hidden="true">
+    <img src="assets/photos/58.jpg" alt="" fetchpriority="high">
+    <img src="assets/photos/472.jpg" alt="">
+    <img src="assets/photos/104.jpg" alt="">
+    <img src="assets/photos/73.jpg" alt="">
+  </div>
+  <div class="intro__shade"></div>
   <div class="intro__frame"></div>
   <div class="intro__content">
     <div class="intro__eyebrow">The Wedding of</div>
@@ -110,6 +115,11 @@
     <svg class="ornament reveal" aria-hidden="true"><use href="#ornament"/></svg>
   </section>
 
+  <figure class="photo-break">
+    <img src="assets/photos/54.jpg" alt="" loading="lazy" style="object-position:50% 40%">
+    <figcaption><b>Two hearts, one love</b><span>สองหัวใจ หนึ่งความรัก</span></figcaption>
+  </figure>
+
   <!-- Schedule -->
   <section class="schedule">
     <div class="section-head">
@@ -123,21 +133,11 @@
         <div class="group__th">พิธีมงคลสมรส</div>
         <div class="group__en">Morning Ceremony</div>
       </div>
-      <div class="event reveal">
-        <div class="event__time"><b>08.29</b><small>น.</small></div>
-        <div class="event__body"><div class="event__th">พิธีแห่ขันหมาก</div><div class="event__en">Khan Maak Procession</div></div>
-      </div>
-      <div class="event reveal">
-        <div class="event__time"><b>09.09</b><small>น.</small></div>
-        <div class="event__body"><div class="event__th">พิธีบายศรีสู่ขวัญและผูกข้อมือ</div><div class="event__en">Baisri Su Kwan &amp; Wrist-Tying Ceremony</div></div>
-      </div>
-      <div class="event reveal">
-        <div class="event__time"><b>09.39</b><small>น.</small></div>
-        <div class="event__body"><div class="event__th">พิธีสมมา</div><div class="event__en">Somma Ceremony</div></div>
-      </div>
-      <div class="event reveal">
-        <div class="event__time"><b>10.19</b><small>น.</small></div>
-        <div class="event__body"><div class="event__th">ร่วมรับประทานอาหาร</div><div class="event__en">Wedding Luncheon</div></div>
+      <div class="timeline">
+        <div class="tl-item reveal"><div class="tl-time">08.29<small>น.</small></div><div class="tl-body"><div class="tl-th">พิธีแห่ขันหมาก</div><div class="tl-en">Khan Maak Procession</div></div></div>
+        <div class="tl-item reveal"><div class="tl-time">09.09<small>น.</small></div><div class="tl-body"><div class="tl-th">พิธีบายศรีสู่ขวัญและผูกข้อมือ</div><div class="tl-en">Baisri Su Kwan &amp; Wrist-Tying Ceremony</div></div></div>
+        <div class="tl-item reveal"><div class="tl-time">09.39<small>น.</small></div><div class="tl-body"><div class="tl-th">พิธีสมมา</div><div class="tl-en">Somma Ceremony</div></div></div>
+        <div class="tl-item reveal"><div class="tl-time">10.19<small>น.</small></div><div class="tl-body"><div class="tl-th">ร่วมรับประทานอาหาร</div><div class="tl-en">Wedding Luncheon</div></div></div>
       </div>
     </div>
 
@@ -164,7 +164,7 @@
     </div>
     <div class="couple__grid">
       <div class="person">
-        <img src="assets/p486.jpg" alt="เจ้าสาว นิโลบล" loading="lazy" style="object-position:50% 40%">
+        <img src="assets/photos/486-s.jpg" alt="เจ้าสาว นิโลบล" loading="lazy" style="object-position:50% 40%">
         <div class="person__info">
           <div class="person__role">The Bride</div>
           <div class="person__name">นิโลบล ช่วยแสง</div>
@@ -173,7 +173,7 @@
         </div>
       </div>
       <div class="person person--offset">
-        <img src="assets/p3.jpg" alt="เจ้าบ่าว นิธิศ" loading="lazy" style="object-position:50% 45%">
+        <img src="assets/photos/3-s.jpg" alt="เจ้าบ่าว นิธิศ" loading="lazy" style="object-position:50% 45%">
         <div class="person__info">
           <div class="person__role">The Groom</div>
           <div class="person__name">นิธิศ ตั้งธนกิจกูล</div>
@@ -199,6 +199,11 @@
     </div>
     <p>ร่วมแต่งกายโทนสีไวน์แดง เบอร์กันดี<br>หรือแชมเปญ เพื่อร่วมเป็นส่วนหนึ่งของบรรยากาศงาน</p>
   </section>
+
+  <figure class="photo-break">
+    <img src="assets/photos/258.jpg" alt="" loading="lazy" style="object-position:50% 45%">
+    <figcaption><b>Forever starts here</b><span>จุดเริ่มต้นของตลอดไป</span></figcaption>
+  </figure>
 
   <!-- Venue -->
   <section class="venue dark reveal">
@@ -228,16 +233,39 @@
       <div class="title">ภาพพรีเวดดิ้ง</div>
       <svg class="ornament reveal ornament--sm" aria-hidden="true"><use href="#ornament"/></svg>
     </div>
-    <div class="gallery__track" id="gallery">
-      <button class="gallery__item" type="button"><img src="assets/p104.jpg" alt="ภาพพรีเวดดิ้ง 1" loading="lazy" style="object-position:50% 30%"></button>
-      <button class="gallery__item" type="button"><img src="assets/p30.jpg" alt="ภาพพรีเวดดิ้ง 2" loading="lazy" style="object-position:55% 50%"></button>
-      <button class="gallery__item" type="button"><img src="assets/p394.jpg" alt="ภาพพรีเวดดิ้ง 3" loading="lazy" style="object-position:50% 40%"></button>
-      <button class="gallery__item" type="button"><img src="assets/p272.jpg" alt="ภาพพรีเวดดิ้ง 4" loading="lazy" style="object-position:50% 30%"></button>
-      <button class="gallery__item" type="button"><img src="assets/p453.jpg" alt="ภาพพรีเวดดิ้ง 5" loading="lazy" style="object-position:50% 30%"></button>
-      <button class="gallery__item" type="button"><img src="assets/cover.jpg" alt="ภาพพรีเวดดิ้ง 6" loading="lazy" style="object-position:50% 20%"></button>
+    <div class="album" id="album">
+      <button class="album__item" type="button" data-full="assets/photos/58.jpg"><img src="assets/photos/58-s.jpg" alt="ภาพพรีเวดดิ้ง 1" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/463.jpg"><img src="assets/photos/463-s.jpg" alt="ภาพพรีเวดดิ้ง 2" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/209.jpg"><img src="assets/photos/209-s.jpg" alt="ภาพพรีเวดดิ้ง 3" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/104.jpg"><img src="assets/photos/104-s.jpg" alt="ภาพพรีเวดดิ้ง 4" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/472.jpg"><img src="assets/photos/472-s.jpg" alt="ภาพพรีเวดดิ้ง 5" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/272.jpg"><img src="assets/photos/272-s.jpg" alt="ภาพพรีเวดดิ้ง 6" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/52.jpg"><img src="assets/photos/52-s.jpg" alt="ภาพพรีเวดดิ้ง 7" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/73.jpg"><img src="assets/photos/73-s.jpg" alt="ภาพพรีเวดดิ้ง 8" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/439.jpg"><img src="assets/photos/439-s.jpg" alt="ภาพพรีเวดดิ้ง 9" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/167.jpg"><img src="assets/photos/167-s.jpg" alt="ภาพพรีเวดดิ้ง 10" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/121.jpg"><img src="assets/photos/121-s.jpg" alt="ภาพพรีเวดดิ้ง 11" loading="lazy"></button>
+      <button class="album__item" type="button" data-full="assets/photos/258.jpg"><img src="assets/photos/258-s.jpg" alt="ภาพพรีเวดดิ้ง 12" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/108.jpg"><img src="assets/photos/108-s.jpg" alt="ภาพพรีเวดดิ้ง 13" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/123.jpg"><img src="assets/photos/123-s.jpg" alt="ภาพพรีเวดดิ้ง 14" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/30.jpg"><img src="assets/photos/30-s.jpg" alt="ภาพพรีเวดดิ้ง 15" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/54.jpg"><img src="assets/photos/54-s.jpg" alt="ภาพพรีเวดดิ้ง 16" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/74.jpg"><img src="assets/photos/74-s.jpg" alt="ภาพพรีเวดดิ้ง 17" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/488.jpg"><img src="assets/photos/488-s.jpg" alt="ภาพพรีเวดดิ้ง 18" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/486.jpg"><img src="assets/photos/486-s.jpg" alt="ภาพพรีเวดดิ้ง 19" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/3.jpg"><img src="assets/photos/3-s.jpg" alt="ภาพพรีเวดดิ้ง 20" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/444.jpg"><img src="assets/photos/444-s.jpg" alt="ภาพพรีเวดดิ้ง 21" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/450.jpg"><img src="assets/photos/450-s.jpg" alt="ภาพพรีเวดดิ้ง 22" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/453.jpg"><img src="assets/photos/453-s.jpg" alt="ภาพพรีเวดดิ้ง 23" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/394.jpg"><img src="assets/photos/394-s.jpg" alt="ภาพพรีเวดดิ้ง 24" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/405.jpg"><img src="assets/photos/405-s.jpg" alt="ภาพพรีเวดดิ้ง 25" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/416.jpg"><img src="assets/photos/416-s.jpg" alt="ภาพพรีเวดดิ้ง 26" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/172.jpg"><img src="assets/photos/172-s.jpg" alt="ภาพพรีเวดดิ้ง 27" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/190.jpg"><img src="assets/photos/190-s.jpg" alt="ภาพพรีเวดดิ้ง 28" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/280.jpg"><img src="assets/photos/280-s.jpg" alt="ภาพพรีเวดดิ้ง 29" loading="lazy"></button>
+      <button class="album__item is-extra" type="button" data-full="assets/photos/324.jpg"><img src="assets/photos/324-s.jpg" alt="ภาพพรีเวดดิ้ง 30" loading="lazy"></button>
     </div>
-    <div class="gallery__dots" id="gallery-dots"></div>
-    <div class="gallery__hint">เลื่อนดูภาพ · แตะเพื่อขยาย</div>
+    <button class="btn btn--ghost gallery__more" id="gallery-more" type="button">ดูภาพทั้งหมด (30 ภาพ)</button>
   </section>
 
   <!-- Footer -->
